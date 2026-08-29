@@ -1,0 +1,174 @@
+#slop-warning {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#slop-warning .slop-warning {
+  width: min(500px, 85vw);
+  padding: 35px;
+  background: var(--surface-3);
+  color: var(--color-base);
+  border: 1px solid var(--surface-5);
+  border-radius: 18px;
+  text-align: center;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.7);
+  animation: slop-warning-appear 0.25s ease-out;
+}
+
+#slop-warning .slop-warning-icon {
+  display: block;
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 20px;
+  object-fit: contain;
+}
+
+#slop-warning h1 {
+  margin: 0 0 18px;
+  color: var(--color-red);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+#slop-warning p {
+  margin: 12px 0;
+  color: var(--color-base);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+#slop-warning .slop-warning-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+#slop-warning button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 9px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.1s ease;
+}
+
+#slop-warning button:active {
+  transform: scale(0.96);
+}
+
+/* Go Back Button */
+#slop-warning #slop-warning-B {
+  order: 1;
+  background: var(--color-blue);
+  color: var(--color-accent-contrast);
+}
+#slop-warning #slop-warning-B:hover {
+  background: var(--color-blue-700);
+}
+
+/* Proceed Button */
+#slop-warning #slop-warning-P {
+  order: 2;
+  background: transparent;
+  color: var(--color-red);
+  border: none;
+  padding: 12px 20px;
+  min-height: 45px;
+}
+#slop-warning #slop-warning-P:hover {
+  background: transparent;
+  color: var(--color-red-700);
+}
+
+@keyframes slop-warning-appear {
+  from {
+    opacity: 0;
+    transform:
+      scale(0.92)
+      translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform:
+      scale(1)
+      translateY(0);
+  }
+}
+
+@media (max-width: 500px) {
+  #slop-warning .slop-warning {
+    width: 80vw;
+    padding: 25px;
+  }
+  #slop-warning .slop-warning-icon {
+    width: 85px;
+    height: 85px;
+  }
+  #slop-warning h1 {
+    font-size: 28px;
+  }
+  #slop-warning p {
+    font-size: 14px;
+  }
+  #slop-warning .slop-warning-buttons {
+    flex-direction: column;
+  }
+  #slop-warning button {
+    width: 100%;
+  }
+}
+
+/* Light Mode */
+@media (prefers-color-scheme: light) {
+  #slop-warning {
+    background: rgba(0, 0, 0, 0.45);
+  }
+
+  #slop-warning .slop-warning {
+    background: var(--surface-3);
+    color: var(--color-base);
+    border: 1px solid var(--surface-5);
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.25);
+  }
+
+  #slop-warning p {
+    color: var(--color-base);
+  }
+
+  #slop-warning #slop-warning-B {
+    color: var(--color-blue);
+  }
+
+  #slop-warning #slop-warning-B:hover {
+    background: var(--color-blue-bg);
+    color: var(--color-blue-700);
+  }
+
+  #slop-warning #slop-warning-P {
+    background: var(--color-red);
+    color: var(--color-accent-contrast);
+    border: 1px solid var(--color-red-700);
+  }
+
+  #slop-warning #slop-warning-P:hover {
+    background: var(--color-red-700);
+  }
+}
